@@ -9,7 +9,16 @@ class MetadataParserSpec extends ObjectBehavior {
         $this->shouldHaveType('Horse\Parsers\MetadataParser');
     }
 
+    function it_parsers_a_single_element()
+    {
+        $this->parse('{name:optional:"Your name":\'John Doe\'}')->shouldReturn([
+            'name', 'optional', 'Your name', 'John Doe'
+        ]);
 
+        $this->parse('{--country:required}')->shouldReturn([
+            '--country', 'required'
+        ]);
+    }
 
 }
 
