@@ -3,7 +3,37 @@
 class MetadataParser {
 
     /**
-     * Parse a single line.
+     * Parse multiple elements.
+     *
+     * @param string $line
+     * @return array
+     */
+    public function parseMany($line)
+    {
+        $results = [];
+        $buffer  = '';
+
+        foreach (\str_split($line) as $character)
+        {
+            if ('{' == $character)
+            {
+                $buffer = $character;
+            }
+            elseif ('}' == $character)
+            {
+                $results[] = $this->parse($buffer.$character);
+            }
+            else
+            {
+                $buffer .= $character;
+            }
+        }
+
+        return $results;
+    }
+
+    /**
+     * Parse a single element.
      *
      * @param string $line
      * @return array
