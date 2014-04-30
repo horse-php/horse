@@ -13,7 +13,7 @@ class DummyCommand extends Command {
      */
     public function go($input, $output)
     {
-        // ???
+        return 'foobar';
     }
 
 }

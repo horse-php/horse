@@ -1,7 +1,6 @@
 <?php namespace Horse\Parsers;
 
-class BlocksParser {
+use Block\Block;
 
+class BlocksParser extends Block {}
 
-
-}
