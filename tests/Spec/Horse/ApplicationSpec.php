@@ -5,6 +5,11 @@ use Horse\Command;
 
 class ApplicationSpec extends ObjectBehavior {
 
+    function let()
+    {
+        $this->beConstructedWith('Test Application', '1.0.0');
+    }
+
     function it_is_initializable()
     {
         $this->shouldHaveType('Horse\Application');
