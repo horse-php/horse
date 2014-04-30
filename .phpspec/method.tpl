@@ -1,5 +1,5 @@
+    public function %name%(%arguments%)
+    {
 
-public function %name%(%arguments%)
-{
+    }
 
-}
