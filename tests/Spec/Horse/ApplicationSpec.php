@@ -38,5 +38,18 @@ class ApplicationSpec extends ObjectBehavior {
         $this->getApplication()->shouldBe($application);
     }
 
+    function it_runs_the_application(Application $application, Command $command)
+    {
+        $this->addCommand($command);
+
+        $application->add($command)->shouldBeCalled();
+
+        $application->run()->willReturn(0);
+
+        $this->setApplication($application);
+
+        $this->run()->shouldBe(0);
+    }
+
 }
 

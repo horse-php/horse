@@ -108,4 +108,19 @@ class Application {
         return $this->application;
     }
 
+    /**
+     * Run the application.
+     *
+     * @return integer
+     */
+    public function run()
+    {
+        $application = $this->application;
+
+        \array_map([$application, 'add'], $this->getCommands());
+
+        return $application->run();
+    }
+
 }
+
