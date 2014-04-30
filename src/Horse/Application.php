@@ -37,6 +37,26 @@ class Application {
     }
 
     /**
+     * Get the application name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get the application version.
+     *
+     * @return mixed
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
      * Add a new command.
      *
      * @param Command $command

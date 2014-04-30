@@ -10,9 +10,13 @@ class ApplicationSpec extends ObjectBehavior {
         $this->beConstructedWith('Test Application', '1.0.0');
     }
 
-    function it_is_initializable()
+    function it_can_be_instantiated()
     {
         $this->shouldHaveType('Horse\Application');
+
+        $this->getName()->shouldBe('Test Application');
+
+        $this->getVersion()->shouldBe('1.0.0');
     }
 
     function it_adds_a_new_command(Command $command)
