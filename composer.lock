@@ -3,8 +3,59 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "b23b006383d70d871deb0e32045efb00",
+    "hash": "8df8c67edd0323b9789c145ae6233868",
     "packages": [
+        {
+            "name": "ilya/block",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ilya-dev/block.git",
+                "reference": "827390748f525c73fc26248b25ffa8b68326e5a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ilya-dev/block/zipball/827390748f525c73fc26248b25ffa8b68326e5a7",
+                "reference": "827390748f525c73fc26248b25ffa8b68326e5a7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Block\\": "src/Block/"
+                },
+                "files": [
+                    "tests/Dummy.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ilya S",
+                    "email": "public.ilya.s@gmail.com"
+                }
+            ],
+            "description": "Parsing docblocks made easy",
+            "keywords": [
+                "blocks",
+                "docblocks",
+                "docs",
+                "documentation",
+                "parsing",
+                "php",
+                "reflection"
+            ],
+            "time": "2014-04-25 16:46:45"
+        },
         {
             "name": "symfony/console",
             "version": "v2.4.4",

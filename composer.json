@@ -4,7 +4,8 @@
     "license": "MIT",
     "keywords": ["symfony", "console", "wrapper"],
     "require": {
-        "symfony/console": "2.4.*"
+        "symfony/console": "2.4.*",
+        "ilya/block": "~1"
     },
     "require-dev": {
         "phpspec/phpspec": "2.0.*"
