@@ -1,0 +1,7 @@
+formatter.name: pretty
+suites:
+  horse_suite:
+    namespace: Horse
+    src_path: src
+    spec_path: tests
+    spec_prefix: Spec
