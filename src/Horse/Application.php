@@ -1,5 +1,7 @@
 <?php namespace Horse;
 
+use Symfony\Component\Console\Application as SymfonyApplication;
+
 class Application {
 
     /**
@@ -17,6 +19,13 @@ class Application {
     protected $version;
 
     /**
+     * The real application instance.
+     *
+     * @var SymfonyApplication
+     */
+    protected $application;
+
+    /**
      * All commands added to the application.
      *
      * @var array
@@ -32,8 +41,9 @@ class Application {
      */
     public function __construct($name, $version = null)
     {
-        $this->name    = $name;
-        $this->version = $version;
+        $this->name        = $name;
+        $this->version     = $version;
+        $this->application = new SymfonyApplication($name, $version ?: 'UNKNOWN');
     }
 
     /**
@@ -75,6 +85,27 @@ class Application {
     public function getCommands()
     {
         return $this->commands;
+    }
+
+    /**
+     * Set the real application instance.
+     *
+     * @param SymfonyApplication $application
+     * @return void
+     */
+    public function setApplication(SymfonyApplication $application)
+    {
+        $this->application = $application;
+    }
+
+    /**
+     * Get the real application instance.
+     *
+     * @return SymfonyApplication
+     */
+    public function getApplication()
+    {
+        return $this->application;
     }
 
 }

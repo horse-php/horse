@@ -2,6 +2,7 @@
 
 use PhpSpec\ObjectBehavior;
 use Horse\Command;
+use Symfony\Component\Console\Application;
 
 class ApplicationSpec extends ObjectBehavior {
 
@@ -26,6 +27,15 @@ class ApplicationSpec extends ObjectBehavior {
         $this->addCommand($command);
 
         $this->getCommands()->shouldHaveCount(1);
+    }
+
+    function it_sets_the_real_console_application_instance(Application $application)
+    {
+        $this->getApplication()->shouldHaveType('Symfony\Component\Console\Application');
+
+        $this->setApplication($application);
+
+        $this->getApplication()->shouldBe($application);
     }
 
 }
