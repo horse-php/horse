@@ -43,7 +43,7 @@ class MetadataParser {
         $elements = [];
 
         // 1. remove braces
-        $line = \preg_replace('/[{}]/', '', $line);
+        $line = \str_replace(['{', '}'], '', $line);
 
         // 2. extract elements
         $elements = \explode(':', $line);
