@@ -1,10 +1,7 @@
 <?php namespace Spec\Horse\Transformers;
 
 use PhpSpec\ObjectBehavior;
-use Horse\Parsers\BlockParser;
 use Horse\Testing\DummyCommand;
-use Horse\Parsers\MetadataParser;
-use Horse\Transformers\ElementTransformer;
 
 class ClassTransformerSpec extends ObjectBehavior {
 
