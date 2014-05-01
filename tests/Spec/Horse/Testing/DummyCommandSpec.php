@@ -1,6 +1,8 @@
 <?php namespace Spec\Horse\Testing;
 
 use PhpSpec\ObjectBehavior;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\NullOutput;
 
 class DummyCommandSpec extends ObjectBehavior {
 
@@ -16,7 +18,7 @@ class DummyCommandSpec extends ObjectBehavior {
 
     function it_runs_the_command()
     {
-        $this->execute(null, null)->shouldBe('foobar');
+        $this->execute(new ArrayInput([]), new NullOutput)->shouldBe('foobar');
     }
 
 }

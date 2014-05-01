@@ -1,6 +1,8 @@
 <?php namespace Horse;
 
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class Command extends SymfonyCommand {
 
@@ -16,13 +18,13 @@ abstract class Command extends SymfonyCommand {
     /**
      * Run the command (for real).
      *
-     * @param Input $input
-     * @param Output $output
+     * @param InputInterface $input
+     * @param OutputInterface $output
      * @return void
      */
-    public function execute($input, $output)
+    public function execute(InputInterface $input, OutputInterface $output)
     {
-        return $this->go($input, $output);
+        return $this->go(new Input($input), new Output($output));
     }
 
 }
