@@ -10,7 +10,7 @@ class Output extends Proxy {
      */
     public function __invoke($content)
     {
-        $this->writeln($content);
+        $this->object->writeln($content);
     }
 
 }

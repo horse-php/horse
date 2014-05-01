@@ -15,7 +15,12 @@ class InputSpec extends ObjectBehavior {
         $this->shouldHaveType('Horse\Input');
     }
 
-
+    function it_validates_an_argument_name()
+    {
+        $this->isArgument('-f')->shouldBe(false);
+        $this->isArgument('--age')->shouldBe(false);
+        $this->isArgument('name')->shouldBe(true);
+    }
 
 }
 

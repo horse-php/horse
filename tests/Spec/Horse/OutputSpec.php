@@ -1,8 +1,14 @@
 <?php namespace Spec\Horse;
 
 use PhpSpec\ObjectBehavior;
+use Symfony\Component\Console\Output\NullOutput;
 
 class OutputSpec extends ObjectBehavior {
+
+    function let()
+    {
+        $this->beConstructedWith(new NullOutput);
+    }
 
     function it_can_be_instantiated()
     {
