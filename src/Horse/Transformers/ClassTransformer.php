@@ -32,8 +32,18 @@ class ClassTransformer {
     public function transform(Command $command)
     {
         $block = $this->parser->reflector(new \ReflectionClass($command));
+        $lines = [];
 
-        list($name, $description, $signature) = $block->getLines();
+        foreach ($block->getLines() as $line)
+        {
+            $lines[] = $line->stripTag();
+        }
+
+        list($name, $description, $signature) = $lines;
+
+        $command->setName($name);
+
+        $command->setDescription($description);
 
         return $command;
     }
