@@ -27,6 +27,9 @@ class ElementTransformer {
      */
     public function transform(array $element)
     {
+        // argument: [name, mode, description, default]
+        // option: [name, shortcut, mode, description, default]
+
         $isArgument = $this->isArgument($element[0]);
 
         $class = 'Symfony\Component\Console\Input\Input'.($isArgument ? 'Argument' : 'Option');
