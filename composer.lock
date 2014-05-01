@@ -3,20 +3,20 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8df8c67edd0323b9789c145ae6233868",
+    "hash": "b65f6821fa34a51d1b0a6ff142917ee6",
     "packages": [
         {
             "name": "ilya/block",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ilya-dev/block.git",
-                "reference": "827390748f525c73fc26248b25ffa8b68326e5a7"
+                "reference": "19033c3578f8a473efa321b2cbeb4e8a4c0bedeb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ilya-dev/block/zipball/827390748f525c73fc26248b25ffa8b68326e5a7",
-                "reference": "827390748f525c73fc26248b25ffa8b68326e5a7",
+                "url": "https://api.github.com/repos/ilya-dev/block/zipball/19033c3578f8a473efa321b2cbeb4e8a4c0bedeb",
+                "reference": "19033c3578f8a473efa321b2cbeb4e8a4c0bedeb",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
                 "php",
                 "reflection"
             ],
-            "time": "2014-04-25 16:46:45"
+            "time": "2014-05-01 06:53:52"
         },
         {
             "name": "symfony/console",
