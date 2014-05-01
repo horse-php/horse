@@ -2,6 +2,7 @@
 
 use Horse\Command;
 use Horse\Parsers\BlockParser;
+use Horse\Parsers\MetadataParser;
 
 class ClassTransformer {
 
@@ -10,17 +11,36 @@ class ClassTransformer {
      *
      * @var BlockParser
      */
-    protected $parser;
+    protected $block;
+
+    /**
+     * The metadata parser instance.
+     *
+     * @var MetadataParser
+     */
+    protected $meta;
+
+    /**
+     * The element transformer instance.
+     *
+     * @var ElementTransformer
+     */
+    protected $element;
 
     /**
      * The constructor.
      *
-     * @param BlockParser $parser
+     * @param BlockParser $block
+     * @param MetadataParser $meta
      * @return ClassTransformer
      */
-    public function __construct(BlockParser $parser)
+    public function __construct(
+        BlockParser $block, MetadataParser $meta, ElementTransformer $element
+    )
     {
-        $this->parser = $parser;
+        $this->block   = $block;
+        $this->meta    = $meta;
+        $this->element = $element;
     }
 
     /**
@@ -31,7 +51,7 @@ class ClassTransformer {
      */
     public function transform(Command $command)
     {
-        $block = $this->parser->reflector(new \ReflectionClass($command));
+        $block = $this->block->reflector(new \ReflectionClass($command));
         $lines = [];
 
         foreach ($block->getLines() as $line)
@@ -42,10 +62,21 @@ class ClassTransformer {
         list($name, $description, $signature) = $lines;
 
         $command->setName($name);
-
         $command->setDescription($description);
+        $command->setDefinition($this->getDefinition($signature));
 
         return $command;
+    }
+
+    /**
+     * Transform the string to a valid command definition.
+     *
+     * @param string $signature
+     * @return array
+     */
+    public function getDefinition($signature)
+    {
+        return [];
     }
 
 }

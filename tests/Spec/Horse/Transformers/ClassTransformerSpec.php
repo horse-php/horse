@@ -3,6 +3,8 @@
 use PhpSpec\ObjectBehavior;
 use Horse\Parsers\BlockParser;
 use Horse\Testing\DummyCommand;
+use Horse\Parsers\MetadataParser;
+use Horse\Transformers\ElementTransformer;
 
 class ClassTransformerSpec extends ObjectBehavior {
 
@@ -11,7 +13,11 @@ class ClassTransformerSpec extends ObjectBehavior {
         // BlockParser cannot be instantiated without a \Reflector instance
         $reflector = new \ReflectionClass('stdClass');
 
-        $this->beConstructedWith(new BlockParser($reflector));
+        $this->beConstructedWith(
+            new BlockParser($reflector),
+            new MetadataParser,
+            new ElementTransformer
+        );
     }
 
     function it_can_be_instantiated()
