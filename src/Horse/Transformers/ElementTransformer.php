@@ -27,9 +27,24 @@ class ElementTransformer {
      */
     public function transform(array $element)
     {
-        list($name, $mode, $description, $default) = $element;
+        $isArgument = $this->isArgument($element[0]);
 
-        return new InputArgument($name, $this->transformMode($mode), $description, $default);
+        $class = 'Symfony\Component\Console\Input\Input'.($isArgument ? 'Argument' : 'Option');
+
+        $reflector = new \ReflectionClass($class);
+
+        if ($isArgument)
+        {
+            $element[1] = $this->transformMode($element[1]);
+        }
+        else
+        {
+            $element[2] = $this->transformMode($element[2]);
+        }
+
+        $element[0] = $this->cleanName($element[0]);
+
+        return $reflector->newInstanceArgs($element);
     }
 
     /**
