@@ -31,6 +31,13 @@ class ElementTransformerSpec extends ObjectBehavior {
         $argument->getName()->shouldBe('name');
         $argument->getDescription()->shouldBe('Your name');
         $argument->getDefault()->shouldBe('Jack');
+
+        $option = $this->transform(['name', 'n', 'value_required']);
+
+        $option->shouldHaveType('Symfony\Component\Console\Input\InputOption');
+        $option->isValueRequired()->shouldBe(true);
+        $option->getName()->shouldBe('name');
+        $option->getShortcut()->shouldBe('n');
     }
 
     function it_detects_an_argument()
