@@ -5,7 +5,7 @@ use Horse\Command;
 /**
  * @name dummy-command
  * @desc Very dummy command
- * @sign {name:required} {--age:optional:"Your age":18}
+ * @sign {name:required} {--age::optional:"Your age":18}
  */
 class DummyCommand extends Command {
 

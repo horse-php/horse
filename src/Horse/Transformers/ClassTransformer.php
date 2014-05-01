@@ -76,7 +76,9 @@ class ClassTransformer {
      */
     public function getDefinition($signature)
     {
-        return [];
+        $elements = $this->meta->parseMany($signature);
+
+        return \array_map([$this->element, 'transform'], $elements);
     }
 
 }
