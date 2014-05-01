@@ -13,6 +13,10 @@ class ElementTransformer {
     protected $modes = [
         'required' => InputArgument::REQUIRED,
         'optional' => InputArgument::OPTIONAL,
+
+        'value_none'     => InputOption::VALUE_NONE,
+        'value_required' => InputOption::VALUE_REQUIRED,
+        'value_optional' => InputOption::VALUE_OPTIONAL,
     ];
 
     /**

@@ -14,8 +14,12 @@ class ElementTransformerSpec extends ObjectBehavior {
     function it_transforms_the_mode_identifier()
     {
         $this->transformMode('required')->shouldBe(InputArgument::REQUIRED);
-
         $this->transformMode('optional')->shouldBe(InputArgument::OPTIONAL);
+
+        // we must prefix it with value_ since it's not context aware
+        $this->transformMode('value_none')->shouldBe(InputOption::VALUE_NONE);
+        $this->transformMode('value_required')->shouldBe(InputOption::VALUE_REQUIRED);
+        $this->transformMode('value_optional')->shouldBe(InputOption::VALUE_OPTIONAL);
     }
 
     function it_transforms_an_element()
