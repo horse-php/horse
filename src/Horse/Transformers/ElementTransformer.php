@@ -27,7 +27,9 @@ class ElementTransformer {
      */
     public function transform(array $element)
     {
-        return new InputArgument($element[0], $this->transformMode($element[1]));
+        list($name, $mode, $description, $default) = $element;
+
+        return new InputArgument($name, $this->transformMode($mode), $description, $default);
     }
 
     /**

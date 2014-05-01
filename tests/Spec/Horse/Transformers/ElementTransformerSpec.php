@@ -24,11 +24,13 @@ class ElementTransformerSpec extends ObjectBehavior {
 
     function it_transforms_an_element()
     {
-        $argument = $this->transform(['name', 'required']);
+        $argument = $this->transform(['name', 'optional', 'Your name', 'Jack']);
 
         $argument->shouldHaveType('Symfony\Component\Console\Input\InputArgument');
-        $argument->isRequired()->shouldBe(true);
+        $argument->isRequired()->shouldBe(false);
         $argument->getName()->shouldBe('name');
+        $argument->getDescription()->shouldBe('Your name');
+        $argument->getDefault()->shouldBe('Jack');
     }
 
 }
