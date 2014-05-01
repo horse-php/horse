@@ -5,10 +5,10 @@ use Symfony\Component\Console\Command\Command as SymfonyCommand;
 abstract class Command extends SymfonyCommand {
 
     /**
-     * Run the command (redirected to).
+     * Run the command (redirected).
      *
-     * @param mixed $input
-     * @param mixed $output
+     * @param Input $input
+     * @param Output $output
      * @return void
      */
     public abstract function go($input, $output);
@@ -16,8 +16,8 @@ abstract class Command extends SymfonyCommand {
     /**
      * Run the command (for real).
      *
-     * @param mixed $input
-     * @param mixed $output
+     * @param Input $input
+     * @param Output $output
      * @return void
      */
     public function execute($input, $output)

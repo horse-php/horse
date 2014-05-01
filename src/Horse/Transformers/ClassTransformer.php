@@ -38,9 +38,9 @@ class ClassTransformer {
         BlockParser $block, MetadataParser $meta, ElementTransformer $element
     )
     {
-        $this->block   = $block;
-        $this->meta    = $meta;
-        $this->element = $element;
+        $this->block   = $block   ?: new BlockParser;
+        $this->meta    = $meta    ?: new MetadataParser;
+        $this->element = $element ?: new ElementTransformer;
     }
 
     /**
