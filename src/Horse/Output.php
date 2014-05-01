@@ -1,6 +1,6 @@
 <?php namespace Horse;
 
-class Output {
+class Output extends Proxy {
 
 
 
