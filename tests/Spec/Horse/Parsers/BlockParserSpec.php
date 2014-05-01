@@ -3,7 +3,7 @@
 use PhpSpec\ObjectBehavior;
 use ReflectionClass;
 
-class BlocksParserSpec extends ObjectBehavior {
+class BlockParserSpec extends ObjectBehavior {
 
     function let(ReflectionClass $reflector)
     {
@@ -12,7 +12,7 @@ class BlocksParserSpec extends ObjectBehavior {
 
     function it_can_be_instantiated()
     {
-        $this->shouldHaveType('Horse\Parsers\BlocksParser');
+        $this->shouldHaveType('Horse\Parsers\BlockParser');
     }
 
 

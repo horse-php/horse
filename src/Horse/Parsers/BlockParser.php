@@ -2,5 +2,5 @@
 
 use Block\Block;
 
-class BlocksParser extends Block {}
+class BlockParser extends Block {}
 
