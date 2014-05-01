@@ -124,11 +124,14 @@ class Application {
      */
     public function run()
     {
-        $application = $this->application;
+        foreach ($this->getCommands() as $command)
+        {
+            $this->transformer->transform($command);
 
-        \array_map([$application, 'add'], $this->getCommands());
+            $this->application->add($command);
+        }
 
-        return $application->run();
+        return $this->application->run();
     }
 
 }

@@ -3,6 +3,7 @@
 use PhpSpec\ObjectBehavior;
 use Horse\Command;
 use Symfony\Component\Console\Application;
+use Horse\Testing\DummyCommand;
 
 class ApplicationSpec extends ObjectBehavior {
 
@@ -38,14 +39,14 @@ class ApplicationSpec extends ObjectBehavior {
         $this->getApplication()->shouldBe($application);
     }
 
-    function it_runs_the_application(Application $application, Command $command)
+    function it_runs_the_application(Application $application)
     {
-        $this->addCommand($command);
+        $command = new DummyCommand;
 
         $application->add($command)->shouldBeCalled();
-
         $application->run()->willReturn(0);
 
+        $this->addCommand($command);
         $this->setApplication($application);
 
         $this->run()->shouldBe(0);

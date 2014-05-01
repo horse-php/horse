@@ -49,7 +49,7 @@ class ClassTransformer {
      * Read the command metadata and apply it.
      *
      * @param Command $command
-     * @return Command
+     * @return void
      */
     public function transform(Command $command)
     {
@@ -66,8 +66,6 @@ class ClassTransformer {
         $command->setName($name);
         $command->setDescription($description);
         $command->setDefinition($this->getDefinition($signature));
-
-        return $command;
     }
 
     /**
