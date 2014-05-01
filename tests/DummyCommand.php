@@ -10,6 +10,18 @@ use Horse\Command;
 class DummyCommand extends Command {
 
     /**
+     * The constructor.
+     *
+     * @return DummyCommand
+     */
+    public function __construct()
+    {
+        $this->setName('dummy-command');
+
+        parent::__construct();
+    }
+
+    /**
      * Run the command.
      *
      * @param mixed $input

@@ -31,7 +31,11 @@ class ClassTransformer {
      */
     public function transform(Command $command)
     {
+        $block = $this->parser->reflector(new \ReflectionClass($command));
 
+        list($name, $description, $signature) = $block->getLines();
+
+        return $command;
     }
 
 }

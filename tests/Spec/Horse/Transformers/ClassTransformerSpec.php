@@ -3,13 +3,15 @@
 use PhpSpec\ObjectBehavior;
 use Horse\Parsers\BlockParser;
 use Horse\Testing\DummyCommand;
-use Prophecy\Argument;
 
 class ClassTransformerSpec extends ObjectBehavior {
 
-    function let(BlockParser $parser)
+    function let()
     {
-        $this->beConstructedWith($parser);
+        // BlockParser cannot be instantiated without a \Reflector instance
+        $reflector = new \ReflectionClass('stdClass');
+
+        $this->beConstructedWith(new BlockParser($reflector));
     }
 
     function it_can_be_instantiated()
@@ -17,13 +19,9 @@ class ClassTransformerSpec extends ObjectBehavior {
         $this->shouldHaveType('Horse\Transformers\ClassTransformer');
     }
 
-    function it_transforms_a_class(DummyCommand $command)
+    function it_transforms_a_class()
     {
-        $command->setName('dummy-command')->shouldBeCalled();
-        $command->setDescription('Very dummy command')->shouldBeCalled();
-        $command->setDefinition(Argument::type('array'))->shouldBeCalled();
-
-        $this->transform($command)->shouldBe($command);
+        $this->transform($command = new DummyCommand)->shouldBe($command);
     }
 
 }
