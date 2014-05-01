@@ -27,5 +27,17 @@ abstract class Command extends SymfonyCommand {
         return $this->go(new Input($input), new Output($output));
     }
 
+    /**
+     * Configure the command.
+     *
+     * @return void
+     */
+    protected function configure()
+    {
+        // we set the command name to "generic"
+        // later the real name will be read from the docblock and overwritten
+        $this->setName('generic');
+    }
+
 }
 

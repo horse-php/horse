@@ -1,6 +1,6 @@
 <?php namespace Horse\Testing;
 
-use Horse\Command;
+use Horse\Command, Horse\Input, Horse\Output;
 
 /**
  * @name dummy-command
@@ -24,11 +24,11 @@ class DummyCommand extends Command {
     /**
      * Run the command.
      *
-     * @param mixed $input
-     * @param mixed $output
+     * @param Input $input
+     * @param Output $output
      * @return void
      */
-    public function go($input, $output)
+    public function go(Input $input, Output $output)
     {
         return 'foobar';
     }
