@@ -33,5 +33,12 @@ class ElementTransformerSpec extends ObjectBehavior {
         $argument->getDefault()->shouldBe('Jack');
     }
 
+    function it_detects_an_argument()
+    {
+        $this->isArgument('name')->shouldBe(true);
+        $this->isArgument('-f')->shouldBe(false);
+        $this->isArgument('--country')->shouldBe(false);
+    }
+
 }
 

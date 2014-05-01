@@ -48,5 +48,16 @@ class ElementTransformer {
         throw new \UnexpectedValueException("Mode {$mode} does not exist");
     }
 
+    /**
+     * Determine whether it's an argument based on the name.
+     *
+     * @param string $name
+     * @return boolean
+     */
+    public function isArgument($name)
+    {
+        return \strpos($name, '-') === false;
+    }
+
 }
 
