@@ -13,7 +13,7 @@ abstract class Command extends SymfonyCommand {
      * @param Output $output
      * @return void
      */
-    public abstract function go($input, $output);
+    public abstract function go(Input $input, Output $output);
 
     /**
      * Run the command (for real).
