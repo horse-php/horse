@@ -59,5 +59,16 @@ class ElementTransformer {
         return \strpos($name, '-') === false;
     }
 
+    /**
+     * Clean the argument/option name.
+     *
+     * @param string $name
+     * @return string
+     */
+    public function cleanName($name)
+    {
+        return \str_replace('-', '', $name);
+    }
+
 }
 

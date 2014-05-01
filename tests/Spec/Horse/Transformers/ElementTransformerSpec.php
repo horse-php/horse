@@ -40,5 +40,12 @@ class ElementTransformerSpec extends ObjectBehavior {
         $this->isArgument('--country')->shouldBe(false);
     }
 
+    function it_cleans_up_the_name()
+    {
+        $this->cleanName('name')->shouldReturn('name');
+        $this->cleanName('--age')->shouldReturn('age');
+        $this->cleanName('-f')->shouldReturn('f');
+    }
+
 }
 
