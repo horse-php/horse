@@ -10,11 +10,8 @@ class ClassTransformerSpec extends ObjectBehavior {
 
     function let()
     {
-        // BlockParser cannot be instantiated without a \Reflector instance
-        $reflector = new \ReflectionClass('stdClass');
-
         $this->beConstructedWith(
-            new BlockParser($reflector),
+            new BlockParser,
             new MetadataParser,
             new ElementTransformer
         );

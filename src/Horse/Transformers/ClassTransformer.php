@@ -35,7 +35,9 @@ class ClassTransformer {
      * @return ClassTransformer
      */
     public function __construct(
-        BlockParser $block, MetadataParser $meta, ElementTransformer $element
+        BlockParser        $block   = null,
+        MetadataParser     $meta    = null,
+        ElementTransformer $element = null
     )
     {
         $this->block   = $block   ?: new BlockParser;

@@ -1,6 +1,7 @@
 <?php namespace Horse;
 
 use Symfony\Component\Console\Application as SymfonyApplication;
+use Horse\Transformers\ClassTransformer;
 
 class Application {
 
@@ -26,6 +27,13 @@ class Application {
     protected $application;
 
     /**
+     * The class transformer instance.
+     *
+     * @var ClassTransformer
+     */
+    protected $transformer;
+
+    /**
      * All commands added to the application.
      *
      * @var array
@@ -44,6 +52,7 @@ class Application {
         $this->name        = $name;
         $this->version     = $version;
         $this->application = new SymfonyApplication($name, $version ?: 'UNKNOWN');
+        $this->transformer = new ClassTransformer;
     }
 
     /**
