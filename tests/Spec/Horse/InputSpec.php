@@ -22,5 +22,11 @@ class InputSpec extends ObjectBehavior {
         $this->isArgument('name')->shouldBe(true);
     }
 
+    function it_returns_the_wrapped_object()
+    {
+        $this->getInput()
+             ->shouldHaveType('Symfony\Component\Console\Input\ArrayInput');
+    }
+
 }
 

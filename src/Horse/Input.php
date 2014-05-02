@@ -5,6 +5,16 @@ use Symfony\Component\Console\Input\InputInterface;
 class Input extends Proxy {
 
     /**
+     * Get the wrapped input object.
+     *
+     * @return InputInterface
+     */
+    public function getInput()
+    {
+        return $this->object;
+    }
+
+    /**
      * Alias for getOption/getArgument.
      *
      * @param string $key
