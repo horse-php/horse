@@ -15,7 +15,11 @@ class OutputSpec extends ObjectBehavior {
         $this->shouldHaveType('Horse\Output');
     }
 
-
+    function it_returns_the_wrapped_object()
+    {
+        $this->getOutput()
+             ->shouldHaveType('Symfony\Component\Console\Output\NullOutput');
+    }
 
 }
 
