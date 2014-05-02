@@ -18,6 +18,10 @@ class MetadataParserSpec extends ObjectBehavior {
         $this->parse('{--country:required}')->shouldReturn([
             '--country', 'required'
         ]);
+
+        $this->parse('{name:required:"foo:bar"}')->shouldReturn([
+            'name', 'required', 'foo:bar'
+        ]);
     }
 
     function it_parses_many_elements()
