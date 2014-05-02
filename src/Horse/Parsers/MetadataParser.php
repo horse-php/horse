@@ -46,7 +46,7 @@ class MetadataParser {
         $line = \str_replace(['{', '}'], '', $line);
 
         // 2. extract elements
-        $elements = \explode(':', $line);
+        $elements = $this->extractElements($line);
 
         // 3. remove quotes
         $iterator = function($element)
@@ -55,6 +55,47 @@ class MetadataParser {
         };
 
         return \array_map($iterator, $elements);
+    }
+
+    /**
+     * Extract an array of elements from the string.
+     *
+     * @param string $line
+     * @return array
+     */
+    protected function extractElements($line)
+    {
+        $elements = [];
+        $buffer   = '';
+        $quote    = false;
+
+        foreach (\str_split($line) as $character)
+        {
+            if (\in_array($character, ['\'', '"']))
+            {
+                $quote = ! $quote;
+
+                continue;
+            }
+
+            if ((':' == $character) and ! $quote)
+            {
+                $elements[] = $buffer;
+
+                $buffer = '';
+
+                continue;
+            }
+
+            $buffer .= $character;
+        }
+
+        if ($buffer)
+        {
+            $elements[] = $buffer;
+        }
+
+        return $elements;
     }
 
 }
